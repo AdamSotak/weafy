@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+enum DeviceType {
+    PLANT
+    OXYGEN
+}
+
+model Device {
+    id   String @id @default(cuid())
+    name String
+
+    latitude  Float
+    longitude Float
+
+    type DeviceType
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @default(now()) @updatedAt
+}
+
+model PlantDeviceRecord {
+    id       String @id @default(cuid())
+    deviceId String
+
+    moistureLevel Float
+    temperature   Float
+
+    createdAt DateTime @default(now())
+}
+
+model OxygenDeviceRecord {
+    id       String @id @default(cuid())
+    deviceId String
+
+    temperature Float
+    humidity    Float
+    light       Float
+
+    createdAt DateTime @default(now())
+}
+
+enum LogLevel {
+    INFO
+    WARNING
+    ERROR
+}
+
+model Log {
+    id        String   @id @default(cuid())
+    level     LogLevel
+    origin    String
+    message   String
+    createdAt DateTime @default(now())
+}
+
+model GenericDeviceRecord {
+    id       String   @id @default(cuid())
+    deviceId String
+    level    LogLevel
+    message  String
+
+    createdAt DateTime @default(now())
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@weafy/config",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.4.0",
+    "typescript": "^5.5.4"
+  }
+}
