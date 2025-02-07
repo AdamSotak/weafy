@@ -4,6 +4,12 @@ A water monitoring system developed for SDU Hackathon 2024. The system consists
 of a backend service for data management and a mobile app for device monitoring
 and control.
 
+<div style="display: flex; justify-content: space-between; margin: 20px 0;">
+    <img src="docs/preview-1.png" width="32%" alt="Preview 1" />
+    <img src="docs/preview-2.png" width="32%" alt="Preview 2" />
+    <img src="docs/preview-3.png" width="32%" alt="Preview 3" />
+</div>
+
 ## Project Structure
 
 The project is organized as a monorepo with the following packages:
